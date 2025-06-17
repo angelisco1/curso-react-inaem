@@ -11,6 +11,7 @@ export const Cmp01UseRefUseEffect = () => {
   const [apellido, setApellido] = useState("Falco")
 
   // Memoization
+  // const nombreCompleto = nombre + " " + apellido
   const nombreCompleto = useMemo(() => {
     const nombreCompleto = nombre + " " + apellido
     console.log('Nombre completo: ' + nombreCompleto)

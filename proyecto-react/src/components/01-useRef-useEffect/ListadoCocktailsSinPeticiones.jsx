@@ -5,23 +5,45 @@ export const ListadoCocktailsSinPeticiones = () => {
   const [initialCocktails, setInitialCocktails] = useState([])
   // const [cocktails, setCocktails] = useState([])
 
+  console.log('FILTRO INI', window.localStorage.getItem('filtro'))
+  console.log(window.localStorage.length)
+
   // Con [filtro] se ejecuta cada vez que el filtro cambia
+  useEffect(() => {
+    const filtroInicial = window.localStorage.getItem('filtro') || ''
+    console.log('FILTRO INICIAL', filtroInicial)
+    setFiltro(filtroInicial)
+  }, [])
+
   useEffect(() => {
 
       const fetchCocktails = async () => {
-        const resp = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m`)
-        const data = await resp.json()
-        console.log(data)
-        if (!Array.isArray(data.drinks)) {
-          setInitialCocktails([])
+        const initialCocktailsStr = window.localStorage.getItem('cocktails')
+        if (initialCocktailsStr) {
+          const initialCocktails = JSON.parse(initialCocktailsStr)
+          setInitialCocktails(initialCocktails)
         } else {
-          setInitialCocktails(data.drinks)
+          const resp = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m`)
+          const data = await resp.json()
+          console.log(data)
+          if (!Array.isArray(data.drinks)) {
+            setInitialCocktails([])
+            window.localStorage.setItem('cocktails', '[]')
+          } else {
+            setInitialCocktails(data.drinks)
+            window.localStorage.setItem('cocktails', JSON.stringify(data.drinks))
+          }
         }
+
       }
 
       fetchCocktails()
 
   }, [])
+
+  useEffect(() => {
+    window.localStorage.setItem('filtro', filtro)
+  }, [filtro])
 
   const cocktailsFiltrados = useMemo(() => {
     console.log('Buscando cocktails')
