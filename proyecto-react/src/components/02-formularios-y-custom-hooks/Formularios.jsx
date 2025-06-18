@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useInputField } from '../../hooks/useInputField'
+import InputField from './InputField'
 
 export const Formularios = () => {
   // FORMULARIO NO CONTROLADO
@@ -10,9 +11,10 @@ export const Formularios = () => {
   // const [email, setEmail] = useState('')
   // const [erroresEmail, setErroresEmail] = useState([])
   const [email, setEmail, erroresEmail] = useInputField('', { required: true, esEmail: true })
+  const [username, setUsername, erroresUsername] = useInputField('', { required: true })
   const [password, setPassword, erroresPw] = useInputField('', { required: true, minLength: 8, tieneMayus: true })
 
-  const [username, setUsername] = useState('')
+  // const [username, setUsername] = useState('')
   // const [password, setPassword] = useState('')
   // const [erroresPw, setErroresPw] = useState([])
 
@@ -86,24 +88,29 @@ export const Formularios = () => {
 
       <h3>CONTROLADO</h3>
       <form onSubmit={handleSubmit2}>
-        <div>
+
+        <InputField label="Email" type="text" value={email} handleInput={(event) => setEmail(event.target.value)} errors={erroresEmail} />
+        <InputField label="Username" type="text" value={username} handleInput={(event) => setUsername(event.target.value)} errors={erroresUsername} />
+        <InputField label="Password" type="password" value={password} handleInput={(event) => setPassword(event.target.value)} errors={erroresPw} />
+
+        {/* <div>
           <label htmlFor="email">Email</label>
           <input type="text" id="email" name="email" value={email} onInput={(event) => setEmail(event.target.value)} />
           {erroresEmail.length > 0 && <ul>
               {erroresEmail.map((error, i)=> <li key={i}>{error}</li>)}
             </ul>}
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <label htmlFor="username2">Username</label>
           <input type="text" id="username2" name="username" value={username} onInput={(event) => setUsername(event.target.value)} />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <label htmlFor="password2">Password</label>
           <input type="password" id="password2" name="password" value={password} onInput={(event) => setPassword(event.target.value)} />
           {erroresPw.length > 0 && <ul>
               {erroresPw.map((error, i)=> <li key={i}>{error}</li>)}
             </ul>}
-        </div>
+        </div> */}
 
         <button type="submit" disabled={erroresPw.length > 0 || erroresEmail.length > 0}>Signup</button>
       </form>
