@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start:api": "node server.js",
     "start": "json-server -w db.json"
   },
   "keywords": [],
@@ -10,6 +11,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "json-server": "^0.17.3"
+    "express": "^5.1.0",
+    "json-server": "^0.17.3",
+    "jsonwebtoken": "^9.0.2"
   }
 }

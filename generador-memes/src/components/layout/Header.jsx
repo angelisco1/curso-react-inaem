@@ -1,20 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { HStack, Flex, Link as ChakraLink, Button } from "@chakra-ui/react"
 
-const Header = () => {
-
+const Header = ({isAuthenticated}) => {
+  console.log(isAuthenticated)
   return (
-    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-      <Link to="/">
-        <h1>Generador de memes</h1>
-      </Link>
+    <Flex h="20" justifyContent="space-between" alignItems="center">
+      <ChakraLink asChild>
+        <Link to="/">
+          <h1>Generador de memes</h1>
+        </Link>
+      </ChakraLink>
 
       <div>
-        <Link to="/crear-meme">Crear meme</Link>
-        <button type="button">Login</button>
-        <button type="button">Logout</button>
+        {isAuthenticated && (
+          <>
+            <ChakraLink asChild>
+              <Link to="/crear-meme">Crear meme</Link>
+            </ChakraLink>
+            <Button type="button">Logout</Button>
+          </>
+        )}
+
+        {!isAuthenticated && (
+          <ChakraLink asChild>
+            <Link to="/login">Login</Link>
+          </ChakraLink>
+        )}
+
       </div>
-    </div>
+    </Flex>
   )
 }
 

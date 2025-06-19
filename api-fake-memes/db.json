@@ -5,7 +5,7 @@
       "texto1": "Hola",
       "texto2": "mundo",
       "url": "https://static01.nyt.com/images/2020/01/28/multimedia/28xp-memekid3/28cp-memekid3-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
-      "likes": 0,
+      "likes": 6,
       "userId": 1,
       "color": "white"
     },
@@ -14,7 +14,7 @@
       "texto1": "Adios",
       "texto2": "mundo",
       "url": "https://i.ytimg.com/vi/sxrzdev5l3A/maxresdefault.jpg",
-      "likes": 0,
+      "likes": 1,
       "userId": 1,
       "color": "white"
     },
@@ -44,6 +44,51 @@
       "userId": 1,
       "likes": 0,
       "id": 7
+    },
+    {
+      "texto1": "asdas",
+      "texto2": "Texto 2",
+      "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
+      "color": "rgba(93, 125, 163, 1)",
+      "userId": 1,
+      "likes": 0,
+      "id": 8
+    },
+    {
+      "texto1": "Texto 1",
+      "texto2": "Texto 2",
+      "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
+      "color": "rgba(0, 0, 0, 1)",
+      "userId": 1,
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "texto1": "Texto 1",
+      "texto2": "Texto 2",
+      "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
+      "color": "rgba(0, 0, 0, 1)",
+      "userId": 1,
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "texto1": "Texto 1",
+      "texto2": "Texto 2",
+      "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
+      "color": "rgba(0, 0, 0, 1)",
+      "userId": 1,
+      "likes": 0,
+      "id": 11
+    },
+    {
+      "texto1": "Texto 1",
+      "texto2": "Texto 2",
+      "url": "https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/F1F2/production/_118283916_b19c5a1f-162b-410b-8169-f58f0d153752.jpg.webp",
+      "color": "rgba(0, 0, 0, 1)",
+      "userId": 1,
+      "likes": 0,
+      "id": 12
     }
   ],
   "users": [

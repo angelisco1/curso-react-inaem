@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import MemesService from '../services/memes.service'
-import Meme from '../components/Meme'
+import MemeItem from '../components/MemeItem'
 
 const Home = () => {
   const [memes, setMemes] = useState([])
@@ -10,7 +10,19 @@ const Home = () => {
       .then(memes => setMemes(memes))
   }, [])
 
-  const listaMemes = memes.map(meme => (<Meme key={meme.id} meme={meme} />))
+  const likeMeme = async (memeId, currentLikes) => {
+    const updatedMeme = await MemesService.updateLikesMeme(memeId, currentLikes)
+    console.log(updatedMeme)
+    const updatedMemes = memes.map(meme => {
+      if (meme.id === memeId) {
+        return updatedMeme
+      }
+      return meme
+    })
+    setMemes(updatedMemes)
+  }
+
+  const listaMemes = memes.map(meme => (<MemeItem key={meme.id} meme={meme} handleLikes={likeMeme} />))
 
   return (
     <div>
